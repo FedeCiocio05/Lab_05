@@ -40,6 +40,7 @@ def main(page: ft.Page):
     input_marca = ft.TextField(label='Marca')
     input_annoAcquisto = ft.TextField(label='Anno acquisto')
 
+    #TextField per il contatore (ha una larghezza minore)
     input_cont = ft.TextField(value="0", width=80, text_align=ft.TextAlign.CENTER, read_only=True)
     # TODO
 
@@ -62,13 +63,13 @@ def main(page: ft.Page):
     # Handlers per la gestione dei pulsanti utili all'inserimento di un nuovo strumento
     def aggiungi_strumento(e):
         try:
-            # Recupera i dati dai TextField
+            # Recupero i dati dai TextField
             tipo = input_tipo.value.strip()
             marca = input_marca.value.strip()
             anno = int(input_annoAcquisto.value)
             valore = float(input_cont.value)
 
-            # Controlla i campi testuali
+            # Controllo i campi testuali
             if tipo == "" or marca == "":
                 alert.show_alert("Inserire il tipo e la marca dello strumento.")
                 return
@@ -82,7 +83,7 @@ def main(page: ft.Page):
             input_annoAcquisto.value = ""
             input_cont.value = "0"
 
-            # Aggiorna la ListView
+            # Aggiorno la ListView
             aggiorna_lista_strumenti()
             page.update()
 
